@@ -5,8 +5,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.model.DealItem;
 
@@ -36,9 +38,11 @@ public class DealDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.deal_detail, container, false);
 
-        // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.deal_detail)).setText(mItem.getDescription());
+            ((TextView) rootView.findViewById(R.id.tv_price)).setText(mItem.getSalePrice());
+            ((TextView) rootView.findViewById(R.id.deal_list_item_title)).setText(mItem.getTitle());
+            ((TextView) rootView.findViewById(R.id.deal_list_item_description)).setText(mItem.getDescription());
+            Picasso.get().load("https://3.imimg.com/data3/IP/PV/MY-10556739/men-t-shirts-250x250.png").into((ImageView) rootView.findViewById(R.id.im_product));
         }
 
         return rootView;

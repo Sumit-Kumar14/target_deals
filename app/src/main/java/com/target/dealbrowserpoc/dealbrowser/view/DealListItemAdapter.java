@@ -40,7 +40,8 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DealItem dealItem = dealItems.get(position);
-        Picasso.get().load(dealItem.getImage()).into(holder.productImage);
+        //Picasso.get().load(dealItem.getImage()).into(holder.productImage);
+        Picasso.get().load("https://3.imimg.com/data3/IP/PV/MY-10556739/men-t-shirts-250x250.png").into(holder.productImage);
         holder.title.setText(dealItem.getTitle());
         holder.price.setText(dealItem.getSalePrice());
         holder.aisle.setText(dealItem.getAisle().toUpperCase());
