@@ -19,10 +19,6 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
     private LayoutInflater inflater;
     private List<DealItem> dealItems;
 
-    public static DealListItemAdapter newInstance(Context context, List<DealItem> items) {
-        return new DealListItemAdapter(context, items);
-    }
-
     public DealListItemAdapter(Context ctx, List<DealItem> items) {
         inflater = LayoutInflater.from(ctx);
         dealItems = items;
@@ -41,6 +37,7 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
         Picasso.get().load(dealItem.getImage()).into(holder.productImage);
         holder.title.setText(dealItem.getTitle());
         holder.price.setText(dealItem.getSalePrice());
+        holder.aisle.setText(dealItem.getAisle().toUpperCase());
     }
 
     @Override
@@ -55,13 +52,14 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView productImage;
-        private TextView title, price;
+        private TextView title, price, aisle;
 
         ViewHolder(View itemView) {
             super(itemView);
             productImage = itemView.findViewById(R.id.deal_list_item_image_view);
             title = itemView.findViewById(R.id.deal_list_item_title);
             price = itemView.findViewById(R.id.deal_list_item_price);
+            aisle = itemView.findViewById(R.id.tv_aisle);
         }
     }
 }

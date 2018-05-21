@@ -6,4 +6,9 @@
         parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
         <item name="android:background">@drawable/actionbar_color</item>
     </style>
+
+    <style name="TextStyle">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@drawable/light_gray_color</item>
+    </style>
 </resources>
