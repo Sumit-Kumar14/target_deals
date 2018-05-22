@@ -4,6 +4,7 @@ import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 import com.target.dealbrowserpoc.dealbrowser.model.network.NetworkService;
 import com.target.dealbrowserpoc.dealbrowser.view.IDealsViewContract;
 
+import java.net.UnknownHostException;
 import java.util.List;
 
 /**
@@ -31,6 +32,10 @@ public class DealsPresenter implements IDealsPresenterContract{
 
     @Override
     public void onFailure(Throwable throwable) {
-        viewContract.showErrorOnLoading(throwable.getMessage());
+        if(throwable instanceof UnknownHostException) {
+            viewContract.showErrorOnLoading("No internet connection!");
+        }else {
+            viewContract.showErrorOnLoading("Some unknown error occurred.");
+        }
     }
 }

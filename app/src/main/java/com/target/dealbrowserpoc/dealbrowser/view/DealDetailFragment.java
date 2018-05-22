@@ -1,5 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.view;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,6 +43,14 @@ public class DealDetailFragment extends Fragment {
             ((TextView) rootView.findViewById(R.id.tv_price)).setText(mItem.getSalePrice());
             ((TextView) rootView.findViewById(R.id.deal_list_item_title)).setText(mItem.getTitle());
             ((TextView) rootView.findViewById(R.id.deal_list_item_description)).setText(mItem.getDescription());
+            if(mItem.getOriginalPrice() != null) {
+                TextView originalPrice = (TextView) rootView.findViewById(R.id.tv_reg_price);
+                originalPrice.setText(mItem.getOriginalPrice());
+                originalPrice.setPaintFlags(originalPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            }else {
+                rootView.findViewById(R.id.tv_reg_price_tag).setVisibility(View.GONE);
+                rootView.findViewById(R.id.tv_reg_price).setVisibility(View.GONE);
+            }
             Picasso.get().load("https://3.imimg.com/data3/IP/PV/MY-10556739/men-t-shirts-250x250.png").into((ImageView) rootView.findViewById(R.id.im_product));
         }
 

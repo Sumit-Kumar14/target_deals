@@ -1,6 +1,8 @@
 package com.target.dealbrowserpoc.dealbrowser.view;
 
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,6 +10,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.target.dealbrowserpoc.dealbrowser.R;
 
@@ -34,6 +38,8 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
     private boolean listview = true;
     private Menu menu;
 
+    private DealsPresenter dealsPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +58,7 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
         toggleRecyclerView();
 
         NetworkService networkService = new NetworkService();
-        DealsPresenter dealsPresenter = new DealsPresenter(networkService, this);
+        dealsPresenter = new DealsPresenter(networkService, this);
         dealsPresenter.fetchDealsFromNetwork();
     }
 
@@ -110,7 +116,20 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
     }
 
     public void showError(String error) {
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.cl_layout), error, Snackbar.LENGTH_INDEFINITE)
+                .setAction("RETRY", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        dealsPresenter.fetchDealsFromNetwork();
+                    }
+                });
 
+        snackbar.setActionTextColor(Color.RED);
+
+        View sbView = snackbar.getView();
+        TextView textView = sbView.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setTextColor(Color.YELLOW);
+        snackbar.show();
     }
 
     @Override

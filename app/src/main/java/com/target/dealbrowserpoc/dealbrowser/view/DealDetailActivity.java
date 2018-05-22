@@ -16,7 +16,7 @@ public class DealDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_deal_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.detail_toolbar);
+        Toolbar toolbar = findViewById(R.id.detail_toolbar);
         setSupportActionBar(toolbar);
 
         // Show the Up button in the action bar.
@@ -27,13 +27,10 @@ public class DealDetailActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
-            arguments.putParcelable(DealDetailFragment.ARG_ITEM_ID,
-                    getIntent().getParcelableExtra(DealDetailFragment.ARG_ITEM_ID));
+            arguments.putParcelable(DealDetailFragment.ARG_ITEM_ID, getIntent().getParcelableExtra(DealDetailFragment.ARG_ITEM_ID));
             DealDetailFragment fragment = new DealDetailFragment();
             fragment.setArguments(arguments);
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.deal_detail_container, fragment)
-                    .commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.deal_detail_container, fragment).commit();
         }
     }
 
