@@ -27,7 +27,7 @@ public class DealDetailActivity extends AppCompatActivity {
 
         if (savedInstanceState == null) {
             Bundle arguments = new Bundle();
-            arguments.putParcelable(DealDetailFragment.ARG_ITEM_ID, getIntent().getParcelableExtra(DealDetailFragment.ARG_ITEM_ID));
+            arguments.putParcelable(DealDetailFragment.ARG_ITEM, getIntent().getParcelableExtra(DealDetailFragment.ARG_ITEM));
             DealDetailFragment fragment = new DealDetailFragment();
             fragment.setArguments(arguments);
             getSupportFragmentManager().beginTransaction().add(R.id.deal_detail_container, fragment).commit();

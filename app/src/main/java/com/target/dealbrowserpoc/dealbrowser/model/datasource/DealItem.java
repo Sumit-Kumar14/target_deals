@@ -112,9 +112,6 @@ public class DealItem implements Parcelable{
         dest.writeString(this.aisle);
     }
 
-    public DealItem() {
-    }
-
     protected DealItem(Parcel in) {
         this.index = in.readInt();
         this.id = in.readString();

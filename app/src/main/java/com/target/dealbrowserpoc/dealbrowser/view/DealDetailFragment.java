@@ -14,23 +14,17 @@ import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 
 public class DealDetailFragment extends Fragment {
-    /**
-     * The fragment argument representing the item ID that this fragment
-     * represents.
-     */
-    public static final String ARG_ITEM_ID = "item_id";
 
-    /**
-     * Content of this fragment.
-     */
+    public static final String ARG_ITEM = "item";
+
     private DealItem mItem;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (getArguments().containsKey(ARG_ITEM_ID)) {
-            mItem = getArguments().getParcelable(ARG_ITEM_ID);
+        if (getArguments().containsKey(ARG_ITEM)) {
+            mItem = getArguments().getParcelable(ARG_ITEM);
         }
     }
 

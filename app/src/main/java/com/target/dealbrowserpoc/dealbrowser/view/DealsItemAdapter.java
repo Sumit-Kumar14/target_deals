@@ -74,7 +74,7 @@ public abstract class DealsItemAdapter extends RecyclerView.Adapter<DealsItemAda
             DealItem item = (DealItem) view.getTag();
             if (mTwoPane) {
                 Bundle arguments = new Bundle();
-                arguments.putParcelable(DealDetailFragment.ARG_ITEM_ID, item);
+                arguments.putParcelable(DealDetailFragment.ARG_ITEM, item);
                 DealDetailFragment fragment = new DealDetailFragment();
                 fragment.setArguments(arguments);
                 mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -83,7 +83,7 @@ public abstract class DealsItemAdapter extends RecyclerView.Adapter<DealsItemAda
             } else {
                 Context context = view.getContext();
                 Intent intent = new Intent(context, DealDetailActivity.class);
-                intent.putExtra(DealDetailFragment.ARG_ITEM_ID, item);
+                intent.putExtra(DealDetailFragment.ARG_ITEM, item);
 
                 context.startActivity(intent);
             }
