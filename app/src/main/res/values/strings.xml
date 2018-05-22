@@ -8,4 +8,12 @@
     <string name="or">or</string>
     <string name="title_deal_list">Target</string>
     <string name="title_deal_detail">Deal Detail</string>
+    <string name="add_to_list">Add to list</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="title">title</string>
+    <string name="title">title</string>
+    <string name="reg">Reg:</string>
+    <string name="title">title</string>
+    <string name="price">price</string>
+    <string name="price">price</string>
 </resources>
