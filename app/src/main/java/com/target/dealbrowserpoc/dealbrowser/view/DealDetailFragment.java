@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.R;
-import com.target.dealbrowserpoc.dealbrowser.model.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 
 public class DealDetailFragment extends Fragment {
     /**
@@ -20,7 +20,7 @@ public class DealDetailFragment extends Fragment {
     public static final String ARG_ITEM_ID = "item_id";
 
     /**
-     * The dummy content this fragment is presenting.
+     * Content of this fragment.
      */
     private DealItem mItem;
 

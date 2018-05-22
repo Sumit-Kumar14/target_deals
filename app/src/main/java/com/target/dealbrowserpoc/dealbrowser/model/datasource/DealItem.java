@@ -1,4 +1,4 @@
-package com.target.dealbrowserpoc.dealbrowser.model;
+package com.target.dealbrowserpoc.dealbrowser.model.datasource;
 
 import android.os.Parcel;
 import android.os.Parcelable;

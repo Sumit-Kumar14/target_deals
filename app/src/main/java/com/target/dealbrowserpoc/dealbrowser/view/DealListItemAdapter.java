@@ -15,7 +15,7 @@ import java.util.List;
 
 import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.R;
-import com.target.dealbrowserpoc.dealbrowser.model.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 
 public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapter.ViewHolder> {
     private LayoutInflater inflater;

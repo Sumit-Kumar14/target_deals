@@ -1,6 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.presenter;
 
-import com.target.dealbrowserpoc.dealbrowser.model.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 import com.target.dealbrowserpoc.dealbrowser.model.network.NetworkService;
 import com.target.dealbrowserpoc.dealbrowser.view.IDealsViewContract;
 

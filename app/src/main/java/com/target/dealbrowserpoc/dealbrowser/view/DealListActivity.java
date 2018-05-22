@@ -8,7 +8,7 @@ import android.support.v7.widget.Toolbar;
 
 import com.target.dealbrowserpoc.dealbrowser.R;
 
-import com.target.dealbrowserpoc.dealbrowser.model.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 import com.target.dealbrowserpoc.dealbrowser.model.network.NetworkService;
 import com.target.dealbrowserpoc.dealbrowser.presenter.DealsPresenter;
 

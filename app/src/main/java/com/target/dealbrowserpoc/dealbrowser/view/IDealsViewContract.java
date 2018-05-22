@@ -1,6 +1,6 @@
 package com.target.dealbrowserpoc.dealbrowser.view;
 
-import com.target.dealbrowserpoc.dealbrowser.model.DealItem;
+import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 
 import java.util.List;
 
