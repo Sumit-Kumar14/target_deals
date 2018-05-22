@@ -2,7 +2,7 @@ package com.target.dealbrowserpoc.dealbrowser.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -52,9 +52,9 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
     }
 
     private void setupRecyclerView() {
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
         mDealsRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new DealListItemAdapter(this, dealItemList, mTwoPane);
+        mAdapter = new GridDealItemAdapter(this, dealItemList, mTwoPane);
         mDealsRecyclerView.setAdapter(mAdapter);
         mDealsRecyclerView.addItemDecoration(new ItemDecorator(this));
     }

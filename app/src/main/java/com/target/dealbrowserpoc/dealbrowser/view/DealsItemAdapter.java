@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,24 +16,21 @@ import com.squareup.picasso.Picasso;
 import com.target.dealbrowserpoc.dealbrowser.R;
 import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 
-public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapter.ViewHolder> {
-    private LayoutInflater inflater;
-    private List<DealItem> dealItems;
-    private boolean mTwoPane;
-    private DealListActivity mParentActivity;
+/**
+ * @author Sumit Kumar
+ */
 
-    DealListItemAdapter(DealListActivity parent, List<DealItem> items, boolean twoPane) {
+public abstract class DealsItemAdapter extends RecyclerView.Adapter<DealsItemAdapter.ViewHolder> {
+    protected LayoutInflater inflater;
+    protected List<DealItem> dealItems;
+    protected boolean mTwoPane;
+    protected DealListActivity mParentActivity;
+
+    DealsItemAdapter(DealListActivity parent, List<DealItem> items, boolean twoPane) {
         this.inflater = LayoutInflater.from(parent);
         this.dealItems = items;
         this.mTwoPane = twoPane;
         this.mParentActivity = parent;
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.deal_list_item, parent, false);
-        return new ViewHolder(view);
     }
 
     @Override
@@ -43,8 +39,8 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
         //Picasso.get().load(dealItem.getImage()).into(holder.productImage);
         Picasso.get().load("https://3.imimg.com/data3/IP/PV/MY-10556739/men-t-shirts-250x250.png").into(holder.productImage);
         holder.title.setText(dealItem.getTitle());
-        holder.price.setText(dealItem.getSalePrice());
-        holder.aisle.setText(dealItem.getAisle().toUpperCase());
+//        holder.price.setText(dealItem.getSalePrice());
+//        holder.aisle.setText(dealItem.getAisle().toUpperCase());
         holder.itemView.setTag(dealItems.get(position));
         holder.itemView.setOnClickListener(mOnClickListener);
     }
@@ -67,8 +63,8 @@ public class DealListItemAdapter extends RecyclerView.Adapter<DealListItemAdapte
             super(itemView);
             productImage = itemView.findViewById(R.id.deal_list_item_image_view);
             title = itemView.findViewById(R.id.deal_list_item_title);
-            price = itemView.findViewById(R.id.deal_list_item_price);
-            aisle = itemView.findViewById(R.id.tv_aisle);
+            //price = itemView.findViewById(R.id.deal_list_item_price);
+            //aisle = itemView.findViewById(R.id.tv_aisle);
         }
     }
 
