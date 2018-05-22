@@ -39,8 +39,8 @@ public abstract class DealsItemAdapter extends RecyclerView.Adapter<DealsItemAda
         //Picasso.get().load(dealItem.getImage()).into(holder.productImage);
         Picasso.get().load("https://3.imimg.com/data3/IP/PV/MY-10556739/men-t-shirts-250x250.png").into(holder.productImage);
         holder.title.setText(dealItem.getTitle());
-//        holder.price.setText(dealItem.getSalePrice());
-//        holder.aisle.setText(dealItem.getAisle().toUpperCase());
+        holder.price.setText(dealItem.getSalePrice());
+        holder.aisle.setText(dealItem.getAisle().toUpperCase());
         holder.itemView.setTag(dealItems.get(position));
         holder.itemView.setOnClickListener(mOnClickListener);
     }
@@ -63,8 +63,8 @@ public abstract class DealsItemAdapter extends RecyclerView.Adapter<DealsItemAda
             super(itemView);
             productImage = itemView.findViewById(R.id.deal_list_item_image_view);
             title = itemView.findViewById(R.id.deal_list_item_title);
-            //price = itemView.findViewById(R.id.deal_list_item_price);
-            //aisle = itemView.findViewById(R.id.tv_aisle);
+            price = itemView.findViewById(R.id.deal_list_item_price);
+            aisle = itemView.findViewById(R.id.tv_aisle);
         }
     }
 
