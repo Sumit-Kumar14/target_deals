@@ -2,12 +2,14 @@ package com.target.dealbrowserpoc.dealbrowser.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
 import com.target.dealbrowserpoc.dealbrowser.R;
 
+import com.target.dealbrowserpoc.dealbrowser.Utils.ItemDecorator;
 import com.target.dealbrowserpoc.dealbrowser.model.datasource.DealItem;
 import com.target.dealbrowserpoc.dealbrowser.model.network.NetworkService;
 import com.target.dealbrowserpoc.dealbrowser.presenter.DealsPresenter;
@@ -54,6 +56,7 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
         mDealsRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new DealListItemAdapter(this, dealItemList, mTwoPane);
         mDealsRecyclerView.setAdapter(mAdapter);
+        mDealsRecyclerView.addItemDecoration(new ItemDecorator(this));
     }
 
     public void updateUI(List<DealItem> dealItems) {
