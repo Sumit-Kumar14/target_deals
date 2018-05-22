@@ -32,6 +32,7 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
     private List<DealItem> dealItemList = new ArrayList<>();
 
     private boolean listview = true;
+    private Menu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        this.menu = menu;
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -67,6 +69,7 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
 
         if (id == R.id.action_menu) {
             toggleRecyclerView();
+            toggleMenuIcon();
             return true;
         }
 
@@ -88,6 +91,14 @@ public class DealListActivity extends AppCompatActivity implements IDealsViewCon
             mDealsRecyclerView.addItemDecoration(new ItemDecorator(this));
         }
         listview = !listview;
+    }
+
+    private void toggleMenuIcon() {
+        if(!listview) {
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_list_24dp));
+        }else {
+            menu.getItem(0).setIcon(getResources().getDrawable(R.drawable.ic_grid_24dp));
+        }
     }
 
     public void updateUI(List<DealItem> dealItems) {
